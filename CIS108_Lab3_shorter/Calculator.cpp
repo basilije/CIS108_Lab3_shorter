@@ -1,14 +1,49 @@
 #include <iostream>
 
 using namespace std;
-string return_number;
+double memory;
 
-string makeOperation(string first_number, string operation, string second_number)
+double addition(double first_number, double second_number)
 {
-	switch (operation)
-	{
-	case "*":
+	return first_number + second_number;
+}
 
-	}
-	return "ok ok ok ok";
+double subtraction(double first_number, double second_number)
+{
+	return first_number - second_number;;
+}
+
+double multiplication(double first_number, double second_number)
+{
+	return first_number * second_number;
+}
+
+double division(double first_number, double second_number)
+{
+	return first_number / second_number;
+}
+
+double powerFunction(double first_number, double second_number)
+{
+	return pow(first_number, second_number);;
+}
+
+void memoryStore(double input_number)
+{
+	memory = input_number;
+}
+
+double memoryRecall()
+{
+	return memory;
+}
+
+void memoryClear()
+{
+	memory = 0;
+}
+
+double invertSign(double input_number)
+{
+	return 0.0 - input_number;;
 }
