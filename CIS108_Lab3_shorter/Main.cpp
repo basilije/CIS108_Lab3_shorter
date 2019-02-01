@@ -5,49 +5,102 @@
 
 using namespace std;
 
-int get_key;
 char char_key;
 string keys_typed = "";
-string first_number;
-string second_number;
-//char operation;
-char *pch;
-char char_array[];
-size_t pos = 0;
-string operation;
+string second_keys_typed = "";
+double first_number;
+double second_number;
+int active_number = 1;
+char operation;
 
 int main() 
 {
 	cout << "> ";
 	do 
 	{
-		get_key = _getch();
-		char_key = char(get_key);
+		char_key = char(_getch());
 	
 		switch (char_key)
 		{
+			case '1': case '2': case'3': case '4': case '5': case '6': case '7': case '8': case '9': case '0': case'.':
+				cout << char_key;
+				keys_typed += char_key;
+				if (active_number == 2)
+					second_keys_typed += char_key;
+				break;
+
+			case '*': case '+': case '-': case '/': case '^':
+				if (active_number == 1)
+				{
+					first_number = stod(keys_typed);
+					active_number = 2;
+					second_keys_typed = "";
+				}
+				cout << char_key;
+				operation = char_key;
+				break;
+
+			case 's': case 'S':
+				memoryStore(first_number);
+				break;
+
+			case 'r': case 'R':
+				first_number = memoryRecall();
+				cout << endl << first_number;
+				break;
+
+			case 'm': case 'M':
+				memoryClear();
+				break;
+
+			case 'i': case 'I':
+				first_number = invertSign(first_number);
+				cout << endl << first_number;
+				active_number = 2;
+				break;
+
+			case 'c': case 'C':
+				cout << endl << "> ";
+				keys_typed = "";
+				second_keys_typed = "";
+				first_number = 0;
+				second_number = 0;
+				active_number = 1;
+				break;
+
 			case char(13):
 				cout << endl;
-				// recognize all parts of string typed, split it on first number, operation and second number
-				// call some function from Calculator.cpp, every character typed are in "keys_typed"
-				operation = '*';
-				pos = keys_typed.find(operation);
-				first_number = keys_typed.substr(0, pos);
-				second_number = keys_typed;
-				second_number.erase(0, pos + 1);
-
-				// keys_typed = "string result from the operation in Calculator.cpp";
-				// cout << keys_typed;
-				
-				keys_typed = makeOperation(first_number, "*", second_number);
-				cout << keys_typed;
-				//cout << first_number << operation << second_number;
+				if (second_keys_typed != "")
+					{ 
+						second_number = stod(second_keys_typed);
+						switch (operation)
+						{
+							case '+':
+								first_number = addition(first_number, second_number);
+								break;
+							case '-':
+								first_number = subtraction(first_number, second_number);
+								break;
+							case '*':
+								first_number = multiplication(first_number, second_number);
+								break;
+							case '/':
+								first_number = division(first_number, second_number);
+								break;
+							case '^':
+								first_number = powerFunction(first_number, second_number);
+								break;
+							default:
+								break;
+						}
+					}
+					cout << first_number << endl << "> ";
+					active_number = 1;
+					keys_typed = to_string(first_number);
+					second_keys_typed = "";
 				break;
 
 			default:
-				// print what we pressed
-				cout << char_key;
-				keys_typed += char_key;
 				break;
 		}
 
