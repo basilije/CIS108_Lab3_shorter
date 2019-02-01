@@ -1,8 +1,6 @@
 #pragma once
 #include <iostream>
 
-using namespace std;
-
 double addition(double first_number, double second_number);
 double subtraction(double first_number, double second_number);
 double multiplication(double first_number, double second_number);
