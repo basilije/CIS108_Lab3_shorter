@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 double addition(double first_number, double second_number);
 double subtraction(double first_number, double second_number);
