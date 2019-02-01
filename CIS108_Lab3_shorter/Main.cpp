@@ -95,10 +95,10 @@ int main()
 								break;
 						}
 					}
-					cout << first_number << endl << "> ";
-					keys_typed = to_string(first_number);
-					second_keys_typed = "";
-					active_number = 1;
+				cout << first_number << endl << "> ";
+				keys_typed = to_string(first_number);
+				second_keys_typed = "";
+				active_number = 1;
 				break;
 
 			default:
