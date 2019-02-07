@@ -1,10 +1,10 @@
 #pragma once
 
-double addition(double first_number, double second_number);
-double subtraction(double first_number, double second_number);
-double multiplication(double first_number, double second_number);
-double division(double first_number, double second_number);
-double powerFunction(double first_number, double second_number);
+double makeAddition(double first_number, double second_number);
+double makeSubtraction(double first_number, double second_number);
+double makeMultiplication(double first_number, double second_number);
+double makeDivision(double first_number, double second_number);
+double makePower(double first_number, double second_number);
 void memoryStore(double input_number);
 double memoryRecall();
 void memoryClear();
