@@ -9,6 +9,7 @@ double first_number_for_the_operation, second_number_for_the_operation;
 string keys_before_the_operation_typed, keys_after_the_operation_typed;
 int active_number;
 char operation_in_progress, key_pressed;
+bool decimal_key_is_pressed;
 
 // reset all variables to the default value
 void resetVariables()
@@ -18,7 +19,7 @@ void resetVariables()
 	first_number_for_the_operation = 0;
 	second_number_for_the_operation = 0;
 	active_number = 1;
-
+	decimal_key_is_pressed = false;
 }
 
 
@@ -37,13 +38,18 @@ int main()
 		{
 			// if the digit or dot is pressed
 		case '1': case '2': case'3': case '4': case '5': case '6': case '7': case '8': case '9': case '0': case'.':
-			cout << key_pressed;
-			if (active_number == 1)
-				keys_before_the_operation_typed += key_pressed;
-			else
-				keys_after_the_operation_typed += key_pressed;
+			if ((key_pressed != '.') || (key_pressed == '.' && !decimal_key_is_pressed))
+			{
+				if (active_number == 1)
+					keys_before_the_operation_typed += key_pressed;
+				else
+					keys_after_the_operation_typed += key_pressed;
+				cout << key_pressed;
+			}
+			if (key_pressed == '.')
+				decimal_key_is_pressed = true;				
 			break;
-
+				
 			// if some of the operation key is pressed
 		case '*': case '+': case '-': case '/': case '^':
 			if (active_number == 1)
