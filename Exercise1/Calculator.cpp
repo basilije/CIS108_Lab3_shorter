@@ -30,7 +30,7 @@ double makeDivision(double first_number, double second_number)
 // make a power function of a two numbers and return the result
 double makePower(double first_number, double second_number)
 {
-	return pow(first_number, second_number);;
+	return pow(first_number, second_number);
 }
 
 // store the number in the variable called "memory"
