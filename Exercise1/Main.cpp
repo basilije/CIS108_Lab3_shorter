@@ -4,6 +4,7 @@
 #include "Calculator.h"
 
 using namespace std;
+using namespace Calculator;
 
 double first_number_for_the_operation, second_number_for_the_operation;
 string keys_before_the_operation_typed, keys_after_the_operation_typed;
@@ -74,19 +75,19 @@ int main()
 					switch (operation_in_progress)
 					{
 					case '+':
-						first_number_for_the_operation = makeAddition(first_number_for_the_operation, second_number_for_the_operation);
+						first_number_for_the_operation = Calculator::makeAddition(first_number_for_the_operation, second_number_for_the_operation);
 						break;
 					case '-':
-						first_number_for_the_operation = makeSubtraction(first_number_for_the_operation, second_number_for_the_operation);
+						first_number_for_the_operation = Calculator::makeSubtraction(first_number_for_the_operation, second_number_for_the_operation);
 						break;
 					case '*':
-						first_number_for_the_operation = makeMultiplication(first_number_for_the_operation, second_number_for_the_operation);
+						first_number_for_the_operation = Calculator::makeMultiplication(first_number_for_the_operation, second_number_for_the_operation);
 						break;
 					case '/':
-						first_number_for_the_operation = makeDivision(first_number_for_the_operation, second_number_for_the_operation);
+						first_number_for_the_operation = Calculator::makeDivision(first_number_for_the_operation, second_number_for_the_operation);
 						break;
 					case '^':
-						first_number_for_the_operation = makePower(first_number_for_the_operation, second_number_for_the_operation);
+						first_number_for_the_operation = Calculator::makePower(first_number_for_the_operation, second_number_for_the_operation);
 						break;
 					default:
 						break;
@@ -100,7 +101,7 @@ int main()
 
 				// if "S" is pressed
 			case 'S':
-				memoryStore(first_number_for_the_operation); // call the function for storing the number in the memory
+				Calculator::memoryStore(first_number_for_the_operation); // call the function for storing the number in the memory
 				break;
 
 				// if "R" is pressed
@@ -111,7 +112,7 @@ int main()
 
 				// if "M" is pressed
 			case 'M':
-				memoryClear(); // clear the memory
+				Calculator::memoryClear(); // clear the memory
 				break;
 
 				// if "I" is pressed
