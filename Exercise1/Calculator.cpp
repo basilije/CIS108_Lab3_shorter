@@ -1,5 +1,3 @@
-#include <iostream>
-#include "Calculator.h"
 #include <math.h>
 
 namespace Calculator {
