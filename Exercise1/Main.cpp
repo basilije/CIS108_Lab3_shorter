@@ -55,6 +55,7 @@ int main()
 		case '*': case '+': case '-': case '/': case '^':
 			if (active_number == 1)
 			{
+				decimal_key_is_pressed = false;  // decimal key fix1
 				first_number_for_the_operation = stod(keys_before_the_operation_typed);
 				active_number = 2;
 				keys_before_the_operation_typed = "";
@@ -97,6 +98,7 @@ int main()
 				keys_before_the_operation_typed = to_string(first_number_for_the_operation); // put first number back in the string before the operation
 				keys_after_the_operation_typed = ""; // clear the 'after the operation' string 
 				active_number = 1; // set active number as first
+				decimal_key_is_pressed = false;  // decimal key fix1
 				break;
 
 				// if "S" is pressed
